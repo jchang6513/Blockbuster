@@ -1,5 +1,8 @@
 package RentalSystem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DummyBlockbuster {
 	private static final String CUSTOMER_APRIL = "April";
 	private static final String CUSTOMER_JOE = "Joe";
@@ -8,11 +11,16 @@ public class DummyBlockbuster {
 	private static final String MOVIE_THOR_3 = "雷神索爾3";
 	
 	public static void main(String[] args) {
+		List<String> customerList = new ArrayList<String>();
 		CRM crm = new CRM();
 		
 		// create customer April, Joe
 	    crm.createCustomer(CUSTOMER_APRIL);
 	    crm.createCustomer(CUSTOMER_JOE);
+	    
+	    // add to customerList
+	    customerList.add(CUSTOMER_APRIL);
+	    customerList.add(CUSTOMER_JOE);
 	    
 	    // 神力女超人 舊片, 正義聯盟超人 新片, 雷神索爾3 新片
 	    crm.createMovie(MOVIE_WONDER_WOMAN, new OldMoviePriceTag());
@@ -29,8 +37,13 @@ public class DummyBlockbuster {
 	    crm.createRental(CUSTOMER_JOE, MOVIE_THOR_3, 1);
 	    
 	    // print April 報表
-	    crm.printStatement(CUSTOMER_APRIL);
+	    // crm.printStatement(CUSTOMER_APRIL);
 	    // print Joe 報表
-	    crm.printStatement(CUSTOMER_JOE);
+	    // crm.printStatement(CUSTOMER_JOE);
+	    
+	    // print 報表
+	    for ( String customer : customerList) {
+	    	crm.printStatement(customer);
+	    }
 	}
 }
