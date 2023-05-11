@@ -16,4 +16,8 @@ public class Movie {
 	public PriceTag getPriceTag() {
 		return priceTag;
 	}
+
+	public void updatePriceTag(PriceTag priceTag) {
+		return this.priceTag = priceTag;
+	}
 }
